@@ -1,4 +1,4 @@
-﻿using PlayerRoles.FirstPersonControl;
+using PlayerRoles.FirstPersonControl;
 using MapGeneration;
 using LabApi.Features.Wrappers;
 using System.Collections.Generic;
@@ -280,7 +280,7 @@ namespace GrannySCPSL.Core
                         {
                             try { p.ReferenceHub.playerEffectsController.EnableEffect<CustomPlayerEffects.Sinkhole>(1f, true); } catch { }
                         }
-                        else
+                        else if (!EventManager.SlowPlayers)
                         {
                             try { p.ReferenceHub.playerEffectsController.DisableEffect<CustomPlayerEffects.Sinkhole>(); } catch { }
                         }

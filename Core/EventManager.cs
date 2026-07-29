@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using LabApi.Features.Wrappers;
 using MEC;
@@ -15,6 +15,7 @@ namespace GrannySCPSL.Core
         public static bool GoodHearing = false;
         public static bool BadHearing = false;
         public static bool FastGrenades = false;
+        public static bool SlowPlayers = false;
         
         private static CoroutineHandle eventCoroutine;
 
@@ -26,6 +27,7 @@ namespace GrannySCPSL.Core
             GoodHearing = false;
             BadHearing = false;
             FastGrenades = false;
+            SlowPlayers = false;
         }
 
         public static void StartEvents()
@@ -119,6 +121,7 @@ namespace GrannySCPSL.Core
                     break;
                 case 9:
                     TranslationManager.BroadcastAll("event_slow_players", 7, shouldClearPrevious: true);
+                    SlowPlayers = true;
                     foreach (var p in Player.GetAll().Where(x => GameManager.ActivePlayers.Contains(x.PlayerId.ToString())))
                     {
                         try {
@@ -126,6 +129,7 @@ namespace GrannySCPSL.Core
                         } catch { }
                     }
                     Timing.CallDelayed(20f, () => {
+                        SlowPlayers = false;
                         TranslationManager.BroadcastAll("event_slow_players_end", 5, shouldClearPrevious: true);
                     });
                     break;
