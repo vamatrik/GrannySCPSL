@@ -1,3 +1,5 @@
+This plugin is made using an AI.
+
 # Русское описание
 
 ## Для кого сделан этот плагин?
