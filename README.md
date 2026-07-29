@@ -9,6 +9,7 @@
 После этого запустите либо Dedicated Server, либо пропишите команду host в консоль игры
 (плагин проверялся на выделенном сервере, так что не уверен, что все будет работать с командой host)
 ## Описание плагина
+
 Вы появитесь в комнате ожидания. Для начала игры зайдите в настройки, server specific settings и нажмите кнопку играть.
 Важно! Для начала у вас должны быть админские права на сервере.
 (на host пишите adminme, а на выделенном сервере впишите ваш steamid в файл "C:\Program Files (x86)\Steam\steamapps\common\SCP Secret Laboratory Dedicated Server\ConfigTemplates\config_remoteadmin.template.txt"
