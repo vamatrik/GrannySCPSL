@@ -248,7 +248,7 @@ namespace GrannySCPSL.AI
                 float closestDist = float.MaxValue;
                 if (attackCooldownTimer > 0) attackCooldownTimer -= dt;
                   
-                  foreach (var p in Player.GetAll().Where(p => p.IsAlive && p.GameObject != Dummy && p.Role != RoleTypeId.Tutorial))
+                  foreach (var p in Player.GetAll().Where(p => p.IsAlive && p.GameObject != Dummy && p.Role != RoleTypeId.Tutorial && !Core.GameManager.VideoModePlayers.Contains(p.PlayerId)))
                   {
                       float dist = Vector3.Distance(dummyHub.transform.position, p.Position);
                       
@@ -498,7 +498,7 @@ namespace GrannySCPSL.AI
                     {
                         foreach (var p in Player.GetAll())
                         {
-                            if (p == grannyPlayer || p.Role == RoleTypeId.Spectator || p.Role == RoleTypeId.None) continue;
+                            if (p == grannyPlayer || p.Role == RoleTypeId.Spectator || p.Role == RoleTypeId.None || Core.GameManager.VideoModePlayers.Contains(p.PlayerId)) continue;
                             if (Vector3.Distance(dummyHub.transform.position, p.Position) < (Core.EventManager.GoodHearing ? 200f : 35f))
                             {
                                 if (p.ReferenceHub.roleManager.CurrentRole is PlayerRoles.FirstPersonControl.IFpcRole fpcRole)

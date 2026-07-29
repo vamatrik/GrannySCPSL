@@ -13,7 +13,7 @@ namespace GrannySCPSL
     public class GrannyPlugin : Plugin<Config>
     {
         public override string Name => "GrannyMinigame";
-        public override string Author => "Antigravity";
+        public override string Author => "Vamatrik & Antigravity AI";
         public override Version Version => new Version(1, 0, 0);
         public override Version RequiredApiVersion => new Version(1, 0, 0);
         public override string Description => "Granny Minigame";

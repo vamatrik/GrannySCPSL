@@ -26,6 +26,18 @@ namespace GrannySCPSL.Core
         private MEC.CoroutineHandle _waitingHandle;
         private MEC.CoroutineHandle _cutsceneHandle;
         public static HashSet<string> ActivePlayers = new HashSet<string>();
+        public static HashSet<int> VideoModePlayers = new HashSet<int>();
+
+        public void ResetRound()
+        {
+            try
+            {
+                GameEnded = false;
+                ActivePlayers.Clear();
+                VideoModePlayers.Clear();
+            }
+            catch { }
+        }
 
         public static bool PT00ExplosivePlaced = false;
         public static bool PT00Activated = false;
